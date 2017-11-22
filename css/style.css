@@ -1,0 +1,250 @@
+/*PAGE LOADER*/
+html {
+	height: 100%;
+}
+
+body {
+	background: url(../images/bg.jpg);
+	background-position: top center;
+    background-size: cover;
+	height: 100%;
+	font-family: tahoma;
+	font-size: 16px;
+}
+
+.clearfix:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+}
+
+.flex {
+    -ms-box-orient: horizontal;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -moz-flex;
+    display: -webkit-flex;
+    display: flex;  
+}
+.jb {
+    justify-content: space-between;
+    -ms-flex-pack: justify;
+}
+.jba {
+    justify-content: space-around;
+    -ms-flex-pack: justify;
+}
+.jc {
+    justify-content: center;
+    -ms-flex-pack: center;
+}
+.je {
+    justify-content: flex-end;
+    -ms-flex-pack: end;
+}
+.ac {
+    align-items: center;
+    -ms-flex-align: center;
+}
+.ae {
+    -ms-flex-align: end;
+    align-items: flex-end;
+}
+
+
+/*--------------------------------------------------
+    HUD
+---------------------------------------------------*/
+.hud{
+	padding-top: 100px;
+
+}
+.hud_n {
+	height: 40px;
+	border: 2px solid #fff;
+	border-radius: 5px;
+	color: #fff;
+	position: relative;
+    background: rgba(84, 84, 84, 0.35);
+    box-sizing: border-box;
+}
+.hud_n:nth-child(2) {
+	margin: 0px 10px;
+}
+.hud_n:before {
+	content: '';
+    height: 15px;
+    background: linear-gradient(to top, rgba(254, 252, 234, 0), rgba(255, 255, 255, 0.42));
+    width: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 9;
+}
+.score > div {
+	width: 35px;
+    text-align: center;
+    line-height: 100%;
+}
+.score {
+	width: 80px;
+    background: linear-gradient(to left, #00264a 40%, #5b1304 60%);
+}
+.inform_bar {
+	width: 255px;
+    font-size: 12px;
+    padding: 0px 8px;
+}
+.bg_red {
+	background: #5b1304;
+}
+.bg_blue {
+	background: #00264a;
+}
+.red {
+	color: #e76142;
+}
+.blue {
+	color: #00a5f9;
+}
+.points_b {
+    position: absolute;
+    transform: translate(-50%,-50%);
+    left: 50%;
+    top: 50%;
+}
+.fund .txt {
+	padding-left: 2px;
+    padding-right: 2px;
+}
+.fund .dig {
+    width: 20px;
+    text-align: center;
+    padding-right: 2px;
+}
+.points {
+	width: 45px;
+    padding-left: 3px;
+}
+
+.loc_n {
+	width: 36px;
+	height: 36px;
+    border-right: 2px solid rgba(255, 255, 255, 0.6);
+    position: relative;
+    overflow: hidden;
+}
+.loc_n:last-child {
+	border-right: 0px;
+}
+.name_loc {
+	position: absolute;
+	z-index: 9;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+/* animation */
+
+.wrap_wr {
+    position: absolute;
+    left: -11.5px;
+    top: -12px;
+}
+.wrap_timer, .wrap_timer * {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.wrap_timer {
+    position: relative;
+    background: transparent;
+    overflow: hidden;
+    width: 30px;
+    height: 60px;
+    left: 30px;
+    animation: mask 5s steps(1, end) infinite, morepos 5s steps(1, end) infinite;
+}
+
+.wrap_timer .pie {
+    width: 30px;
+    height: 100%;
+    transform-origin: 100% 50%;
+    position: absolute;
+    right: 30px;
+}
+
+.wrap_timer .spinner {
+    border-radius: 100% 0 0 100% / 50% 0 0 50%;
+    z-index: 2;
+    border-right: none;
+    animation: rota 5s linear infinite;
+}
+.wrap_timer .spinner_inv {
+    border-radius: 100% 0 0 100% / 50% 0 0 50%;
+    z-index: 2;
+    border-right: none;
+    animation: rota_inv 5s linear infinite;
+}
+
+.wrap_timer .filler {
+    border-radius: 250px 0 0 250px / 125px 0 0 125px;
+    border-radius: 0 100% 100% 0 / 0 50% 50% 0;
+    right: 0;
+    opacity: 0;
+    z-index: 1;
+    animation: opa 5s steps(1, end) infinite;
+    border-left: none;
+}
+.wrap_timer.bg_red .pie {
+    background: #5b1304;
+    border: 14px solid #5b1304;
+}
+.wrap_timer.bg_blue .pie {
+    background: #00264a;
+    border: 14px solid #00264a;
+}
+@keyframes rota {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+@keyframes rota_inv {
+    0% {
+        transform: rotate(180deg);
+    }
+    100% {
+        transform: rotate(-180deg);
+    }
+}
+@keyframes pos {
+    50%, 100% {
+        right: 0;
+    }
+}
+@keyframes morepos {
+    50%, 100% {
+        left: 0;
+    }
+}
+@keyframes opa {
+    50%, 100% {
+        opacity: 1;
+    }
+}
+@keyframes mask {
+    50%, 100% {
+        width: 60px;
+    }
+}
+
+
